@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 //var todocontroller = require('./controllers/todocontroller');
-var todocontroller = require('./controllers/mongo');
+var todocontroller = require('./controllers/mongodb');
 
 var app = express();
 
@@ -16,7 +16,7 @@ var urlencodedParser = bodyParser.urlencoded({extended:false});
 
 
 //fire function
-todocontroller(app);
+todocontroller(app);    // todo controller file call funtion
 
 
 app.listen(5000);
