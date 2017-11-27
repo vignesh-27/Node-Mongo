@@ -7,7 +7,9 @@ mongoose.connect('mongodb://localhost/mydb');
 
 //Create a schema-this is like a Blue print (like data types)
 var todoSchema = new mongoose.Schema({
-    item: String
+    item: String,
+    description: String,
+    price: Number
 });
 
 //Model Creation
@@ -28,7 +30,8 @@ app.get('/contact', function(req,res){
 
 app.post('/contact', urlencodedParser, function(req,res){
     //Get data from the view and add it to Mongodb
-    var newTodo = Todo(req.body).save(function(err,data){
+    var todo = {item:req.body.item, description:req.body.description, price:req.body.price};
+    var newTodo = Todo(todo).save(function(err,data){
         if(err) throw err;
         res.json(data);
     });

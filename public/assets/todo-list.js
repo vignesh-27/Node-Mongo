@@ -2,8 +2,11 @@ $(document).ready(function(){
 
     $('form').on('submit', function(){
       
-        var item = $('form input');
-        var todo = {item: item.val()};
+        var item = $('#item').val();
+        var description = $('#description').val();
+        var price = $('#price').val();
+        var todo = {item: item, description: description, price:price};
+        alert(todo);
         $.ajax({
             type: 'POST',
             url: '/contact',

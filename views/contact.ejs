@@ -43,9 +43,30 @@
             <div class="form-group"> <!-- Text Box 1 -->
                 <label class="control-label col-sm-2" for="item">First Name:</label>
                 <div class="col-sm-4">
-                  <input type="text" class="form-control" id="item" placeholder="Enter FirstName" name="item">
+                  <input type="text" class="form-control" id="item" placeholder="Enter Item Name" name="item">
                 </div>
             </div>
+
+            <div class="form-group"> <!-- Text Box 2 -->
+                <label class="control-label col-sm-2" for="description">Description:</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="description" placeholder="Enter Description" name="description">
+                </div>
+                <div class="col-sm-4">
+                        <label id="err2"></label>
+                </div>
+            </div>
+
+            <div class="form-group"> <!-- Text Box 3 -->
+                <label class="control-label col-sm-2" for="price">Price:</label>
+                <div class="col-sm-4">          
+                    <input type="text" class="form-control" id="price"  placeholder="Enter The Price" name="price">
+                </div>
+                <div class="col-sm-4">
+                        <label id="err3"></label>
+                </div>
+            </div>
+
             <div class="form-group">    
                 <div class="col-sm-offset-2 col-sm-10">
                     <input type="submit"></button>
@@ -59,7 +80,9 @@
     
     <ul>
         <% for(var i=0; i < todo.length; i++){ %>
-         <li><%= todo[i].item %></li>   
+         <li>Item: <%= todo[i].item %>&nbsp;&nbsp;&nbsp;
+             Decription: <%= todo[i].description %>&nbsp;&nbsp;&nbsp;
+             Price: <%= todo[i].price %>&nbsp;&nbsp;&nbsp;</li>   
         <% } %>
     </ul>
     
