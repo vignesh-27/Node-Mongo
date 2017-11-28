@@ -41,7 +41,7 @@
     
         <form class="form-horizontal">
             <div class="form-group"> <!-- Text Box 1 -->
-                <label class="control-label col-sm-2" for="item">First Name:</label>
+                <label class="control-label col-sm-2" for="item">Item Name:</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" id="item" placeholder="Enter Item Name" name="item">
                 </div>
@@ -73,15 +73,13 @@
                 </div>
             </div>
         </form>
-    
-        <!-- <button id="button" onclick="validatefunction()" class="btn btn-default" style="margin-left:160px;"> Submit </button> -->
-    <br/><br/>
+    <br/>
     <h1 style="margin-left:30px;"><b>The Controller sended Data</b></h1>
     
     <ul>
         <% for(var i=0; i < todo.length; i++){ %>
          <li>Item: <%= todo[i].item %>&nbsp;&nbsp;&nbsp;
-             Decription: <%= todo[i].description %>&nbsp;&nbsp;&nbsp;
+             Description: <%= todo[i].description %>&nbsp;&nbsp;&nbsp;
              Price: <%= todo[i].price %>&nbsp;&nbsp;&nbsp;</li>   
         <% } %>
     </ul>

@@ -1,24 +1,9 @@
 var bodyParser = require('body-parser');
-var MongoClient = require('mongodb').MongoClient;
+var Todo = require('../model/todo.js');
 var mongoose = require('mongoose');
-
-//Database connection
-mongoose.connect('mongodb://localhost/mydb');
-
-//Create a schema-this is like a Blue print (like data types)
-var todoSchema = new mongoose.Schema({
-    item: String,
-    description: String,
-    price: Number
-});
-
-//Model Creation
-var Todo = mongoose.model('Todo', todoSchema);
-
 
 var urlencodedParser = bodyParser.urlencoded({extended:false});
 
-//static get, post, delete function from temporary Object data
 module.exports = function(app){
 
 app.get('/contact', function(req,res){
@@ -38,11 +23,11 @@ app.post('/contact', urlencodedParser, function(req,res){
 });
 
 app.delete('/contact/:item', function(req,res){
-    //Delete the requested item from Mongodb
+     //Delete the requested item from Mongodb
     Todo.find({item:req.params.item}).remove(function(err, data){
         if(err) throw err;
         res.json(data);
     });
-});           
+});   
 
-}   
+}

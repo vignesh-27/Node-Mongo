@@ -1,7 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-//var todocontroller = require('./controllers/todocontroller');
+var mongoose = require('mongoose');
 var todocontroller = require('./controllers/mongodb');
+//var todocontroller = require('./controllers/todocontroller');
 
 var app = express();
 
@@ -18,6 +19,13 @@ var urlencodedParser = bodyParser.urlencoded({extended:false});
 //fire function
 todocontroller(app);    // todo controller file call funtion
 
+//Database connection
+mongoose.connect('mongodb://localhost/mydb', err=>{
+    if(err){
+        console.log("Unable to connect your db");
+    }else{
+        app.listen(5000);
+        console.log('Your app running port 5000');
+    }
+});
 
-app.listen(5000);
-console.log('Your app running port 5000');
